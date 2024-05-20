@@ -5,6 +5,11 @@ editor: visual
 ---
 
 ```{r}
+#Elizabeth's commit
+print("howdy y'all")
+```
+
+```{r}
 #vaila's commit
 1+1
 ```
