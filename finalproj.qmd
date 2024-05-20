@@ -1,0 +1,11 @@
+---
+title: "finalproj"
+format: html
+editor: visual
+---
+
+```{r}
+#vaila's commit
+1+1
+```
+
