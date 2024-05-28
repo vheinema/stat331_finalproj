@@ -14,7 +14,9 @@ execute:
   warning: false
 ---
 
-## Data Description
+## Introduction
+
+### Data Description
 
 This project aims to explore the relationship between economic growth and environmental impact by examining CO2 emissions per capita in relation to GDP per capita. Through careful data cleaning and analysis, we expect to uncover trends and insights that can inform policy decisions and promote sustainable development practices.
 
@@ -30,24 +32,27 @@ The carbon dioxide total based on consumption from GM Long Series in Million Ton
 
 The gross domestic product per capita which “measures the value of everything produced in a country during a year, divided by the number of people.” It is adjusted for “differences in purchasing power (in international dollars, fixed 2017 prices, PPP based on 2017 ICP).” The years we are using are from 1950 to 2021 and we pulled the data from Gapminder. Gapminder stated that they collected the data from multiple different sources.
 
-### Hypothesized relationship between the variables (and any outside references).
+### Hypothesized Relationship Between the Variables
 
-Hypothesis: There is a positive relationship between GDP Per Capita and CO2 Emissions Per Capita. As a country’s economic output increases, its CO2 emissions per capita are likely to rise due to increased industrial activity, energy consumption, and higher standards of living which often result in more energy-intensive lifestyles.
+Hypothesis: There is a positive, linear relationship between GDP Per Capita and CO2 Emissions Per Capita. As a country’s economic output increases, its CO2 emissions per capita are likely to rise due to increased industrial activity, energy consumption, and higher standards of living which often result in more energy-intensive lifestyles. However, based off of the research we found, the GDP Per Capita and CO2 Emissions relationship will likely weaken in the future because of environmental policies and climate change concerns.
 
-References: 
+References:
 
-### Discussion of data cleaning process and decisions
+https://www.sciencedirect.com/science/article/pii/S235248471500013X?via%3Dihub#screen-reader-main-title
 
-  The data cleaning process involved several critical steps to ensure the integrity and consistency of the datasets before analysis. 
-  
-  First, we acquired the CO2 Emissions Per Capita and GDP Per Capita data from Gapminder for the years 1800-2022. We began by performing a consistency check to verify that both datasets included the same countries and years, ensuring uniformity across the data. 
-  
-  Next, we addressed missing values by identifying and either imputing them or excluding entries with significant gaps to maintain dataset reliability. Data type conversion was essential, so we converted all relevant data to appropriate formats, such as numeric values for year, GDP, and CO2 emissions. We then merged the datasets using an inner join on the common keys, which were country and year, to create a unified dataset containing only entries present in both original datasets. 
-  
-  Lastly, we filtered the dataset to focus on the years 1950 to 2021. These cleaning steps ensured a high-quality, comprehensive dataset ready for thorough analysis of the relationship between CO2 emissions per capita and GDP per capita across different countries over the specified period.
+https://www.iea.org/commentaries/the-relationship-between-growth-in-gdp-and-co2-has-loosened-it-needs-to-be-cut-completely
 
+### Discussion of Data Cleaning Process and Decisions
 
-## Data Import
+The data cleaning process involved several critical steps to ensure the integrity and consistency of the datasets before analysis.
+
+First, we acquired the CO2 Emissions Per Capita and GDP Per Capita data from Gapminder for the years 1800-2022. We began by performing a consistency check to verify that both datasets included the same countries and years, ensuring uniformity across the data.
+
+Next, we addressed missing values by identifying and either imputing them or excluding entries with significant gaps to maintain dataset reliability. Data type conversion was essential, so we converted all relevant data to appropriate formats, such as numeric values for year, GDP, and CO2 emissions. We then merged the datasets using an inner join on the common keys, which were country and year, to create a unified dataset containing only entries present in both original datasets.
+
+Lastly, we filtered the dataset to focus on the years 1950 to 2021. These cleaning steps ensured a high-quality, comprehensive dataset ready for thorough analysis of the relationship between CO2 emissions per capita and GDP per capita across different countries over the specified period.
+
+## Data Import and Cleaning
 
 ```{r}
 library(tidyverse)
@@ -88,5 +93,3 @@ data_clean <- data_clean |>
 
 head(data_clean)
 ```
-
-## Data
