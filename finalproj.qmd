@@ -16,7 +16,9 @@ execute:
 
 ## Data Description
 
-In this analysis, we wil be exploring the relationship between CO2 Emissions Per Capita and GDP Per Capita across different countries from 1950 to 2021.
+This project aims to explore the relationship between economic growth and environmental impact by examining CO2 emissions per capita in relation to GDP per capita. Through careful data cleaning and analysis, we expect to uncover trends and insights that can inform policy decisions and promote sustainable development practices.
+
+By completing this analysis, we will contribute to the understanding of how economic development influences environmental outcomes and provide a data-driven foundation for future research in this area.
 
 ### Variables
 
@@ -34,7 +36,16 @@ Hypothesis: There is a positive relationship between GDP Per Capita and CO2 Emis
 
 References: 
 
-Discussion of data cleaning process and decisions
+### Discussion of data cleaning process and decisions
+
+  The data cleaning process involved several critical steps to ensure the integrity and consistency of the datasets before analysis. 
+  
+  First, we acquired the CO2 Emissions Per Capita and GDP Per Capita data from Gapminder for the years 1800-2022. We began by performing a consistency check to verify that both datasets included the same countries and years, ensuring uniformity across the data. 
+  
+  Next, we addressed missing values by identifying and either imputing them or excluding entries with significant gaps to maintain dataset reliability. Data type conversion was essential, so we converted all relevant data to appropriate formats, such as numeric values for year, GDP, and CO2 emissions. We then merged the datasets using an inner join on the common keys, which were country and year, to create a unified dataset containing only entries present in both original datasets. 
+  
+  Lastly, we filtered the dataset to focus on the years 1950 to 2021. These cleaning steps ensured a high-quality, comprehensive dataset ready for thorough analysis of the relationship between CO2 emissions per capita and GDP per capita across different countries over the specified period.
+
 
 ## Data Import
 
