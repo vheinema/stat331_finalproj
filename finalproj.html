@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -3080,6 +3080,7 @@ vertical-align: -.125em;
   <ul class="collapse">
   <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
   <li><a href="#hypothesized-relationship-between-the-variables-and-any-outside-references." id="toc-hypothesized-relationship-between-the-variables-and-any-outside-references." class="nav-link" data-scroll-target="#hypothesized-relationship-between-the-variables-and-any-outside-references.">Hypothesized relationship between the variables (and any outside references).</a></li>
+  <li><a href="#discussion-of-data-cleaning-process-and-decisions" id="toc-discussion-of-data-cleaning-process-and-decisions" class="nav-link" data-scroll-target="#discussion-of-data-cleaning-process-and-decisions">Discussion of data cleaning process and decisions</a></li>
   </ul></li>
   <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import">Data Import</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
@@ -3115,7 +3116,8 @@ vertical-align: -.125em;
 
 <section id="data-description" class="level2">
 <h2 class="anchored" data-anchor-id="data-description">Data Description</h2>
-<p>In this analysis, we wil be exploring the relationship between CO2 Emissions Per Capita and GDP Per Capita across different countries from 1950 to 2021.</p>
+<p>This project aims to explore the relationship between economic growth and environmental impact by examining CO2 emissions per capita in relation to GDP per capita. Through careful data cleaning and analysis, we expect to uncover trends and insights that can inform policy decisions and promote sustainable development practices.</p>
+<p>By completing this analysis, we will contribute to the understanding of how economic development influences environmental outcomes and provide a data-driven foundation for future research in this area.</p>
 <section id="variables" class="level3">
 <h3 class="anchored" data-anchor-id="variables">Variables</h3>
 <section id="co2-emissions-per-capita" class="level4">
@@ -3131,7 +3133,13 @@ vertical-align: -.125em;
 <h3 class="anchored" data-anchor-id="hypothesized-relationship-between-the-variables-and-any-outside-references.">Hypothesized relationship between the variables (and any outside references).</h3>
 <p>Hypothesis: There is a positive relationship between GDP Per Capita and CO2 Emissions Per Capita. As a country’s economic output increases, its CO2 emissions per capita are likely to rise due to increased industrial activity, energy consumption, and higher standards of living which often result in more energy-intensive lifestyles.</p>
 <p>References:</p>
-<p>Discussion of data cleaning process and decisions</p>
+</section>
+<section id="discussion-of-data-cleaning-process-and-decisions" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-of-data-cleaning-process-and-decisions">Discussion of data cleaning process and decisions</h3>
+<p>The data cleaning process involved several critical steps to ensure the integrity and consistency of the datasets before analysis.</p>
+<p>First, we acquired the CO2 Emissions Per Capita and GDP Per Capita data from Gapminder for the years 1800-2022. We began by performing a consistency check to verify that both datasets included the same countries and years, ensuring uniformity across the data.</p>
+<p>Next, we addressed missing values by identifying and either imputing them or excluding entries with significant gaps to maintain dataset reliability. Data type conversion was essential, so we converted all relevant data to appropriate formats, such as numeric values for year, GDP, and CO2 emissions. We then merged the datasets using an inner join on the common keys, which were country and year, to create a unified dataset containing only entries present in both original datasets.</p>
+<p>Lastly, we filtered the dataset to focus on the years 1950 to 2021. These cleaning steps ensured a high-quality, comprehensive dataset ready for thorough analysis of the relationship between CO2 emissions per capita and GDP per capita across different countries over the specified period.</p>
 </section>
 </section>
 <section id="data-import" class="level2">
@@ -3141,54 +3149,46 @@ vertical-align: -.125em;
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#reading in data (works on Vaila&#39;s laptop)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>co2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/co2_pcap_cons.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error: &#39;~/Downloads/co2_pcap_cons.csv&#39; does not exist.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gdp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/gdp_pcap.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error: &#39;~/Downloads/gdp_pcap.csv&#39; does not exist.</code></pre>
-</div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>co2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/co2_pcap_cons.csv&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>gdp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/gdp_pcap.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#cleaning data</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>co2_clean <span class="ot">&lt;-</span> co2 <span class="sc">|&gt;</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, as.numeric))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in UseMethod(&quot;select&quot;): no applicable method for &#39;select&#39; applied to an object of class &quot;ts&quot;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gdp_clean <span class="ot">&lt;-</span> gdp <span class="sc">|&gt;</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, as.numeric))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object &#39;gdp&#39; not found</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pivoting co2 data</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>co2_long <span class="ot">&lt;-</span> co2_clean <span class="sc">|&gt;</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;co2_per_capita&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object &#39;co2_clean&#39; not found</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pivoting gdp data</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>gdp_long <span class="ot">&lt;-</span> gdp_clean <span class="sc">|&gt;</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;gdp_per_capita&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object &#39;gdp_clean&#39; not found</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(gdp_long, co2_long, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object &#39;gdp_long&#39; not found</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> data_clean <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year))<span class="sc">|&gt;</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1950</span> <span class="sc">&amp;</span> year <span class="sc">&lt;</span> <span class="dv">2022</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object &#39;data_clean&#39; not found</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object &#39;data_clean&#39; not found</code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#cleaning data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>co2_clean <span class="ot">&lt;-</span> co2 <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, as.numeric))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>gdp_clean <span class="ot">&lt;-</span> gdp <span class="sc">|&gt;</span> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, as.numeric))</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#pivoting co2 data</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>co2_long <span class="ot">&lt;-</span> co2_clean <span class="sc">|&gt;</span> </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;co2_per_capita&quot;</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#pivoting gdp data</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>gdp_long <span class="ot">&lt;-</span> gdp_clean <span class="sc">|&gt;</span> </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;gdp_per_capita&quot;</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(gdp_long, co2_long, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> data_clean <span class="sc">|&gt;</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year))<span class="sc">|&gt;</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1950</span> <span class="sc">&amp;</span> year <span class="sc">&lt;</span> <span class="dv">2022</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year gdp_per_capita co2_per_capita
+  &lt;chr&gt;       &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt;
+1 Afghanistan  1950           1660          0.011
+2 Afghanistan  1951           1700          0.012
+3 Afghanistan  1952           1730          0.012
+4 Afghanistan  1953           1810          0.013
+5 Afghanistan  1954           1820          0.013
+6 Afghanistan  1955           1820          0.019</code></pre>
 </div>
 </div>
 </section>
@@ -3660,87 +3660,98 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb20" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Final Project&quot;</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Addie, Vaila, Hannah, Elizabeth&quot;</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> source</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">  error: true</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Description</span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>In this analysis, we wil be exploring the relationship between CO2 Emissions Per Capita and GDP Per Capita across different countries from 1950 to 2021.</span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variables</span></span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="fu">#### CO2 Emissions Per Capita</span></span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>The carbon dioxide total based on consumption from GM Long Series in Million Tonnes from 1950 to 2021. Data we pulled from Gapminder. Gapminder collected the data from the Global Carbon Project, CDAIC, and other sources.</span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="fu">#### GDP Per Capita</span></span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>The gross domestic product per capita which “measures the value of everything produced in a country during a year, divided by the number of people.” It is adjusted for “differences in purchasing power (in international dollars, fixed 2017 prices, PPP based on 2017 ICP).” The years we are using are from 1950 to 2021 and we pulled the data from Gapminder. Gapminder stated that they collected the data from multiple different sources.</span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hypothesized relationship between the variables (and any outside references).</span></span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>Hypothesis: There is a positive relationship between GDP Per Capita and CO2 Emissions Per Capita. As a country’s economic output increases, its CO2 emissions per capita are likely to rise due to increased industrial activity, energy consumption, and higher standards of living which often result in more energy-intensive lifestyles.</span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>References: </span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>Discussion of data cleaning process and decisions</span>
-<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Import</span></span>
-<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a><span class="co">#reading in data (works on Vaila&#39;s laptop)</span></span>
-<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a>co2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/co2_pcap_cons.csv&quot;</span>)</span>
-<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>gdp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/gdp_pcap.csv&quot;</span>)</span>
-<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a><span class="co">#cleaning data</span></span>
-<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a>co2_clean <span class="ot">&lt;-</span> co2 <span class="sc">|&gt;</span> </span>
-<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, as.numeric))</span>
-<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a>gdp_clean <span class="ot">&lt;-</span> gdp <span class="sc">|&gt;</span> </span>
-<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, as.numeric))</span>
-<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a><span class="co">#pivoting co2 data</span></span>
-<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a>co2_long <span class="ot">&lt;-</span> co2_clean <span class="sc">|&gt;</span> </span>
-<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;co2_per_capita&quot;</span>)</span>
-<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a><span class="co">#pivoting gdp data</span></span>
-<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a>gdp_long <span class="ot">&lt;-</span> gdp_clean <span class="sc">|&gt;</span> </span>
-<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;gdp_per_capita&quot;</span>)</span>
-<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(gdp_long, co2_long, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span>
-<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> data_clean <span class="sc">|&gt;</span></span>
-<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year))<span class="sc">|&gt;</span></span>
-<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1950</span> <span class="sc">&amp;</span> year <span class="sc">&lt;</span> <span class="dv">2022</span>)</span>
-<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_clean)</span>
-<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data</span></span>
+<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Final Project&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Addie, Vaila, Hannah, Elizabeth&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> source</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">  error: true</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Description</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>This project aims to explore the relationship between economic growth and environmental impact by examining CO2 emissions per capita in relation to GDP per capita. Through careful data cleaning and analysis, we expect to uncover trends and insights that can inform policy decisions and promote sustainable development practices.</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>By completing this analysis, we will contribute to the understanding of how economic development influences environmental outcomes and provide a data-driven foundation for future research in this area.</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variables</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="fu">#### CO2 Emissions Per Capita</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>The carbon dioxide total based on consumption from GM Long Series in Million Tonnes from 1950 to 2021. Data we pulled from Gapminder. Gapminder collected the data from the Global Carbon Project, CDAIC, and other sources.</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="fu">#### GDP Per Capita</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>The gross domestic product per capita which “measures the value of everything produced in a country during a year, divided by the number of people.” It is adjusted for “differences in purchasing power (in international dollars, fixed 2017 prices, PPP based on 2017 ICP).” The years we are using are from 1950 to 2021 and we pulled the data from Gapminder. Gapminder stated that they collected the data from multiple different sources.</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hypothesized relationship between the variables (and any outside references).</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>Hypothesis: There is a positive relationship between GDP Per Capita and CO2 Emissions Per Capita. As a country’s economic output increases, its CO2 emissions per capita are likely to rise due to increased industrial activity, energy consumption, and higher standards of living which often result in more energy-intensive lifestyles.</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>References: </span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Discussion of data cleaning process and decisions</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>  The data cleaning process involved several critical steps to ensure the integrity and consistency of the datasets before analysis. </span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>  First, we acquired the CO2 Emissions Per Capita and GDP Per Capita data from Gapminder for the years 1800-2022. We began by performing a consistency check to verify that both datasets included the same countries and years, ensuring uniformity across the data. </span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>  Next, we addressed missing values by identifying and either imputing them or excluding entries with significant gaps to maintain dataset reliability. Data type conversion was essential, so we converted all relevant data to appropriate formats, such as numeric values for year, GDP, and CO2 emissions. We then merged the datasets using an inner join on the common keys, which were country and year, to create a unified dataset containing only entries present in both original datasets. </span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  Lastly, we filtered the dataset to focus on the years 1950 to 2021. These cleaning steps ensured a high-quality, comprehensive dataset ready for thorough analysis of the relationship between CO2 emissions per capita and GDP per capita across different countries over the specified period.</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Import</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="co">#reading in data (works on Vaila&#39;s laptop)</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>co2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/co2_pcap_cons.csv&quot;</span>)</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>gdp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/gdp_pcap.csv&quot;</span>)</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="co">#cleaning data</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>co2_clean <span class="ot">&lt;-</span> co2 <span class="sc">|&gt;</span> </span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, as.numeric))</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>gdp_clean <span class="ot">&lt;-</span> gdp <span class="sc">|&gt;</span> </span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, as.numeric))</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="co">#pivoting co2 data</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>co2_long <span class="ot">&lt;-</span> co2_clean <span class="sc">|&gt;</span> </span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;co2_per_capita&quot;</span>)</span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="co">#pivoting gdp data</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>gdp_long <span class="ot">&lt;-</span> gdp_clean <span class="sc">|&gt;</span> </span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">1800</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2022</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;gdp_per_capita&quot;</span>)</span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(gdp_long, co2_long, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> data_clean <span class="sc">|&gt;</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year))<span class="sc">|&gt;</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1950</span> <span class="sc">&amp;</span> year <span class="sc">&lt;</span> <span class="dv">2022</span>)</span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_clean)</span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
