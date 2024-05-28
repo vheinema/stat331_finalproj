@@ -31,5 +31,16 @@ Text
 
 
 ## Data Import and Cleaning 
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+cellphones <- read_csv("/Users/addierhee/Documents/Stat331/cell_phones_per_100_people.csv")
+
+happiness <- read_csv("/Users/addierhee/Documents/Stat331/hapiscore_whr.csv")
+```
+
 
 
