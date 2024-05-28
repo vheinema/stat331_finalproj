@@ -4,43 +4,24 @@ format: html
 editor: visual
 ---
 
-```{r}
-#Elizabeth's commit
-print("howdy y'all")
-```
-
-```{r}
-#Addie's Commit
-print("I'm here")
-```
-
-```{r}
-#vaila's commit
-1+1
-```
-
-```{r}
-#Hannahs change
-print("Hi")
-```
-
 ## Data Description
 
 Text
 
 
 
-## Data Import and Cleaning 
+## Data Import
 ```{r}
 library(tidyverse)
 ```
-
 
 ```{r}
 cellphones <- read_csv("/Users/addierhee/Documents/Stat331/cell_phones_per_100_people.csv")
 
 happiness <- read_csv("/Users/addierhee/Documents/Stat331/hapiscore_whr.csv")
+
+suicide <- read_csv("/Users/addierhee/Documents/Stat331/suicide_total_deaths.csv")
 ```
 
-
+## Data 
 
