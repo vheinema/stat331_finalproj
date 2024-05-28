@@ -20,7 +20,7 @@ execute:
 
 #### CO2 Emissions
 
-The carbondioxide total based on consumption from GM Long Series in Million Tonnes from 1950 to 2021.  Data we pulled from Gapminder.  Gapminder collected the data from the Global Carbon Project, CDAIC, and other sources.
+The carbon dioxide total based on consumption from GM Long Series in Million Tonnes from 1950 to 2021.  Data we pulled from Gapminder.  Gapminder collected the data from the Global Carbon Project, CDAIC, and other sources.
 
 #### GDP
 
