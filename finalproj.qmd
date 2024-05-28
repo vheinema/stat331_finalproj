@@ -16,20 +16,29 @@ execute:
 
 ## Data Description
 
-Text
+Detailed data and variable description.
+
+Variables
+
+CO2 Emissions
+
+The carbondioxide total based on consumption from GM Long Series in Million Tonnes from 1950 to 2021.  Data we pulled from Gapminder.  Gapminder collected the data from the Global Carbon Project, CDAIC, and other sources.
+
+GDP
+
+The gross domestic product per capita which measures “measures the value of everything produced in a country during a year, divided by the number of people.” It is adjusted for “differences in purchasing power (in international dollars, fixed 2017 prices, PPP based on 2017 ICP).”  The years we are using are from 1950 to 2021 and we pulled the data from Gapminder.  Gapminder stated that they collected the data from multiple different sources.
+
+
+
+Hypothesized relationship between the variables (and any outside references).
+
+Discussion of data cleaning process and decisions
+
 
 ## Data Import
 
 ```{r}
 library(tidyverse)
-```
-
-```{r}
-#cellphones <- read_csv("/Users/addierhee/Documents/Stat331/cell_phones_per_100_people.csv")
-
-#happiness <- read_csv("/Users/addierhee/Documents/Stat331/hapiscore_whr.csv")
-
-#suicide <- read_csv("/Users/addierhee/Documents/Stat331/suicide_total_deaths.csv")
 ```
 
 ```{r}
