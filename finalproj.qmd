@@ -1,6 +1,6 @@
 ---
 title: "Final Project"
-author: "Addie, Vaila, Hannah, Elizabeth"
+author: "Addie Rhee, Vaila Heinemann, Hannah Dutta, Elizabeth Boland"
 format: 
   html:
     embed-resources: true
