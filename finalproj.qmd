@@ -8,20 +8,47 @@ editor: visual
 
 Text
 
-
-
 ## Data Import
+
 ```{r}
 library(tidyverse)
 ```
 
 ```{r}
-cellphones <- read_csv("/Users/addierhee/Documents/Stat331/cell_phones_per_100_people.csv")
+#cellphones <- read_csv("/Users/addierhee/Documents/Stat331/cell_phones_per_100_people.csv")
 
-happiness <- read_csv("/Users/addierhee/Documents/Stat331/hapiscore_whr.csv")
+#happiness <- read_csv("/Users/addierhee/Documents/Stat331/hapiscore_whr.csv")
 
-suicide <- read_csv("/Users/addierhee/Documents/Stat331/suicide_total_deaths.csv")
+#suicide <- read_csv("/Users/addierhee/Documents/Stat331/suicide_total_deaths.csv")
 ```
 
-## Data 
+```{r}
+#reading in data (works on Vaila's laptop)
+co2 <- read_csv("~/Downloads/co2_pcap_cons.csv")
 
+gdp <- read_csv("~/Downloads/gdp_pcap.csv")
+```
+
+```{r}
+#cleaning data
+co2_clean <- co2 |> 
+  select(country, `1800`:`2022`) |> 
+  mutate(across(`1800`:`2022`, as.numeric))
+
+gdp_clean <- gdp |> 
+  select(country, `1800`:`2022`) |> 
+  mutate(across(`1800`:`2022`, as.numeric))
+
+#pivoting co2 data
+co2_long <- co2_clean |> 
+  pivot_longer(cols = `1800`:`2022`, names_to = "year", values_to = "co2_per_capita")
+
+#pivoting gdp data
+gdp_long <- gdp_clean |> 
+  pivot_longer(cols = `1800`:`2022`, names_to = "year", values_to = "gdp_per_capita")
+
+data_joined <- inner_join(gdp_long, co2_long, by = c("country", "year"))
+head(data_joined)
+```
+
+## Data
