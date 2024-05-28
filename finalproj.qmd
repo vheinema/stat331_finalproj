@@ -1,7 +1,17 @@
 ---
-title: "finalproj"
-format: html
-editor: visual
+title: "Final Project"
+author: "Addie, Vaila, Hannah, Elizabeth"
+format: 
+  html:
+    embed-resources: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
 ---
 
 ## Data Description
@@ -27,6 +37,7 @@ library(tidyverse)
 co2 <- read_csv("~/Downloads/co2_pcap_cons.csv")
 
 gdp <- read_csv("~/Downloads/gdp_pcap.csv")
+
 ```
 
 ```{r}
@@ -47,8 +58,14 @@ co2_long <- co2_clean |>
 gdp_long <- gdp_clean |> 
   pivot_longer(cols = `1800`:`2022`, names_to = "year", values_to = "gdp_per_capita")
 
-data_joined <- inner_join(gdp_long, co2_long, by = c("country", "year"))
-head(data_joined)
+data_clean <- inner_join(gdp_long, co2_long, by = c("country", "year"))
+
+
+data_clean <- data_clean |>
+  mutate(year = as.numeric(year))|>
+  filter(year >= 1950 & year < 2022)
+
+head(data_clean)
 ```
 
 ## Data
