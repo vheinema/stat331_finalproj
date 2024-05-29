@@ -9,7 +9,7 @@ format:
 editor: source
 execute: 
   error: true
-  echo: true
+  echo: false
   message: false
   warning: false
 ---
@@ -18,7 +18,7 @@ execute:
 
 ### Data Description
 
-This project aims to explore the relationship between economic growth and environmental impact by examining CO2 emissions per capita in relation to GDP per capita. Through careful data cleaning and analysis, we expect to uncover trends and insights that can inform policy decisions and promote sustainable development practices.
+This project aims to explore the relationship between economic growth and environmental impact by examining Carbon Dioxide (CO2) emissions per capita in relation to Gross Domestic Product (GDP) per capita. Through careful data cleaning and analysis, we expect to uncover trends and insights that can inform policy decisions and promote sustainable development practices.
 
 By completing this analysis, we will contribute to the understanding of how economic development influences environmental outcomes and provide a data-driven foundation for future research in this area.
 
@@ -51,6 +51,11 @@ First, we acquired the CO2 Emissions Per Capita and GDP Per Capita data from Gap
 Next, we addressed missing values by identifying and either imputing them or excluding entries with significant gaps to maintain dataset reliability. Data type conversion was essential, so we converted all relevant data to appropriate formats, such as numeric values for year, GDP, and CO2 emissions. We then merged the datasets using an inner join on the common keys, which were country and year, to create a unified dataset containing only entries present in both original datasets.
 
 Lastly, we filtered the dataset to focus on the years 1950 to 2021. These cleaning steps ensured a high-quality, comprehensive dataset ready for thorough analysis of the relationship between CO2 emissions per capita and GDP per capita across different countries over the specified period.
+
+
+### Data Cleaning for Missing Values
+
+need to do
 
 ## Data Import and Cleaning
 
@@ -91,5 +96,12 @@ data_clean <- data_clean |>
   mutate(year = as.numeric(year))|>
   filter(year >= 1950 & year < 2022)
 
-head(data_clean)
+#head(data_clean)
 ```
+
+
+## References
+
+https://www.sciencedirect.com/science/article/pii/S235248471500013X?via%3Dihub#screen-reader-main-title
+
+https://www.iea.org/commentaries/the-relationship-between-growth-in-gdp-and-co2-has-loosened-it-needs-to-be-cut-completely
