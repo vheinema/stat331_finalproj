@@ -26,11 +26,11 @@ By completing this analysis, we will contribute to the understanding of how econ
 
 #### CO2 Emissions Per Capita
 
-The carbon dioxide total based on consumption from GM Long Series in Million Tonnes from 1950 to 2021. Data we pulled from Gapminder. Gapminder collected the data from the Global Carbon Project, CDAIC, and other sources.
+The carbon dioxide total based on consumption from GM Long Series in Million Tonnes from 1950 to 2021. The data was pulled from Gapminder. Gapminder stated that they collected the data from the Global Carbon Project, CDAIC, and other sources.
 
 #### GDP Per Capita
 
-The gross domestic product per capita which “measures the value of everything produced in a country during a year, divided by the number of people.” It is adjusted for “differences in purchasing power (in international dollars, fixed 2017 prices, PPP based on 2017 ICP).” The years we are using are from 1950 to 2021 and we pulled the data from Gapminder. Gapminder stated that they collected the data from multiple different sources.
+The gross domestic product per capita which “measures the value of everything produced in a country during a year, divided by the number of people.” It is adjusted for “differences in purchasing power (in international dollars, fixed 2017 prices, PPP based on 2017 ICP).” The years we are using are from 1950 to 2021 which was pulled from the from Gapminder. Gapminder stated that they collected the data from multiple different sources.
 
 ### Hypothesized Relationship Between the Variables
 
