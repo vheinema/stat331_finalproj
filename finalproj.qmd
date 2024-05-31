@@ -98,6 +98,28 @@ data_clean <- data_clean |>
 
 #head(data_clean)
 ```
+## Data Visualizations
+	1	The relationship between the two quantitative variables you are investigating.
+	(response var on x axis and explanatory on y axis)
+	
+	2	How this relationship (from #1) has changed over time. (can use an animated 
+	
+
+## Linear Regression 
+	•	Describe the statistical method used – linear regression.
+	•	Present the estimated regression model (in notation).
+	•	Interpret the linear regression coefficients (in context).
+	•	Describe the fit of the regression model (both in table and written format).
+
+
+## Model Fit
+
+Make a nicely formatted table that presents the following:
+	•	The variance in the response values.
+	•	The variance in the fitted values from your regression model.
+	•	The variance in the residuals from your regression model.
+
+
 
 
 ## References
