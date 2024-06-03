@@ -159,12 +159,13 @@ Estimated regression model (in notation).
 
 CO2 Per Capita = -0.8204 + 0.0004982(GDP per Capita)
 
+```
 Interpret the linear regression coefficients
 ```
 
 For every one dollar increase in international dollars in GDP per capita, there is a 0.0004982 million ton increase in C02 emissions per capita.
 
-```         
+```        
 Description of the fit of the regression model (both in table and written format).
 ```
 
@@ -173,6 +174,7 @@ library(broom)
 
 broom::glance(data_lm)
 ```
+
 
 39.31% of the variation in Co2 emissions is explained by variation in GDP per capita in our linear model.
 
