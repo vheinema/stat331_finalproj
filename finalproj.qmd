@@ -106,7 +106,6 @@ data_clean |>
 ```         
 2   How this relationship (from #1) has changed over time
 ```
-
 ```{r}
 #| eval: false
 
@@ -132,6 +131,7 @@ fig <- fig |> layout(
 
 fig
 ```
+
 
 ## Linear Regression
 
