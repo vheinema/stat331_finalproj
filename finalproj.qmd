@@ -131,7 +131,6 @@ fig <- fig |> layout(
   )
 
 fig
-
 ```
 
 ## Linear Regression
