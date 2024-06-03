@@ -94,7 +94,8 @@ data_clean <- inner_join(gdp_long, co2_long, by = c("country", "year"))
 
 data_clean <- data_clean |>
   mutate(year = as.numeric(year))|>
-  filter(year >= 1950 & year < 2022)
+  filter(year >= 1950 & year < 2022) |>
+  filter(!is.na(gdp_per_capita))
 
 #head(data_clean)
 ```
@@ -102,14 +103,75 @@ data_clean <- data_clean |>
 	1	The relationship between the two quantitative variables you are investigating.
 	(response var on x axis and explanatory on y axis)
 	
+```{r}
+data_clean |>
+  ggplot(mapping = aes(x = gdp_per_capita, y=co2_per_capita)) +
+           geom_jitter()+
+  ylim(0,22)
+        
+```
+
+	
 	2	How this relationship (from #1) has changed over time. (can use an animated 
+	
+```{r}
+library(plotly)
+library(gapminder)
+
+df <- data_clean
+fig <- df |>
+  plot_ly(
+    x = ~gdp_per_capita, 
+    y = ~co2_per_capita, 
+    frame = ~year, 
+    text = ~country, 
+    hoverinfo = "text",
+    type = 'scatter',
+    mode = 'markers'
+  )
+fig <- fig |> layout(
+    xaxis = list(
+      type = "log"
+    )
+  )
+
+fig
+
+```
+
 	
 
 ## Linear Regression 
 	•	Describe the statistical method used – linear regression.
+	
+```{r}
+
+data_regression <- data_clean |>
+  group_by(country) |>
+  summarize(average_co2 = mean(co2_per_capita), 
+            average_gdp = mean(gdp_per_capita))
+
+data_lm <- lm(average_co2 ~ average_gdp, data = data_regression)
+summary(data_lm)
+```
+
 	•	Present the estimated regression model (in notation).
+	
+CO2 Per Capita = -0.8204 + 0.0004982(GDP per Capita)
+
 	•	Interpret the linear regression coefficients (in context).
+	
+For every one dollar increase in international dollars in GDP per capita, there is a 0.0004982 million ton increase in C02 emissions per capita. 
+	
 	•	Describe the fit of the regression model (both in table and written format).
+	
+```{r}
+library(broom)
+
+broom::glance(data_lm)
+```
+
+39.31% of the variation in Co2 emissions is explained by variation in GDP per capita in our linear model. 
 
 
 ## Model Fit
@@ -118,6 +180,11 @@ Make a nicely formatted table that presents the following:
 	•	The variance in the response values.
 	•	The variance in the fitted values from your regression model.
 	•	The variance in the residuals from your regression model.
+	
+```{r}
+
+```
+
 
 
 
