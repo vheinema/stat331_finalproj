@@ -106,6 +106,7 @@ data_clean |>
 ```         
 2   How this relationship (from #1) has changed over time
 ```
+
 ```{r}
 #| eval: false
 
@@ -133,12 +134,12 @@ fig
 
 ```
 
-
 ## Linear Regression
 
 ```         
 Description of the statistical method used – linear regression.
 ```
+The statistical method we used was the linear regression to model the relationship between GDP per capita and C02 per capita. 
 
 In our linear regression, we summarized our data to have one x value (GDP per capita) and one y value (CO2 per capita). We decided to average across all the years for each individual country.
 
@@ -176,7 +177,7 @@ broom::glance(data_lm)
 ```
 
 
-39.31% of the variation in Co2 emissions is explained by variation in GDP per capita in our linear model.
+39.31% of the variation in C02 emissions is explained by variation in GDP per capita in our linear model.
 
 ## Model Fit
 
