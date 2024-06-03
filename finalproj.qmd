@@ -140,6 +140,8 @@ fig
 Description of the statistical method used – linear regression.
 ```
 
+In our linear regression, we summarized our data to have one x value (GDP per capita) and one y value (CO2 per capita). We decided to average across all the years for each individual country.
+
 ```{r}
 
 data_regression <- data_clean |>
@@ -157,7 +159,6 @@ Estimated regression model (in notation).
 
 CO2 Per Capita = -0.8204 + 0.0004982(GDP per Capita)
 
-```         
 Interpret the linear regression coefficients
 ```
 
