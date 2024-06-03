@@ -36,13 +36,13 @@ The gross domestic product per capita which “measures the value of everything 
 
 Hypothesis: There is a positive, linear relationship between GDP Per Capita and CO2 Emissions Per Capita. As a country’s economic output increases, its CO2 emissions per capita are likely to rise due to increased industrial activity, energy consumption, and higher standards of living which often result in more energy-intensive lifestyles. However, based off of the research we found, the GDP Per Capita and CO2 Emissions relationship will likely weaken in the future because of environmental policies and climate change concerns.
 
-= = \### Discussion of Data Cleaning Process and Decisions
+### Discussion of Data Cleaning Process and Decisions
 
 The data cleaning process involved several critical steps to ensure the integrity and consistency of the datasets before analysis.
 
 First, we acquired the CO2 Emissions Per Capita and GDP Per Capita data from Gapminder for the years 1800-2022. We began by performing a consistency check to verify that both datasets included the same countries and years, ensuring uniformity across the data.
 
-Next, we addressed missing values by identifying and either imputing them or excluding entries with significant gaps to maintain dataset reliability. Data type conversion was essential, so we converted all relevant data to appropriate formats, such as numeric values for year, GDP, and CO2 emissions. We then merged the datasets using an inner join on the common keys, which were country and year, to create a unified dataset containing only entries present in both original datasets.
+Next, we addressed missing values by filtering out during our cleaning process.  Data type conversion was essential, so we converted all relevant data to appropriate formats, such as numeric values for year, GDP, and CO2 emissions. We then merged the datasets using an inner join on the common keys, which were country and year, to create a unified dataset containing only entries present in both original datasets.
 
 Lastly, we filtered the dataset to focus on the years 1950 to 2021. These cleaning steps ensured a high-quality, comprehensive dataset ready for thorough analysis of the relationship between CO2 emissions per capita and GDP per capita across different countries over the specified period.
 
