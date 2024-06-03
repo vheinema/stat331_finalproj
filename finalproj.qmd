@@ -36,7 +36,7 @@ The gross domestic product per capita which “measures the value of everything 
 
 Hypothesis: There is a positive, linear relationship between GDP Per Capita and CO2 Emissions Per Capita. As a country’s economic output increases, its CO2 emissions per capita are likely to rise due to increased industrial activity, energy consumption, and higher standards of living which often result in more energy-intensive lifestyles. However, based off of the research we found, the GDP Per Capita and CO2 Emissions relationship will likely weaken in the future because of environmental policies and climate change concerns.
 
-= = ### Discussion of Data Cleaning Process and Decisions
+= = \### Discussion of Data Cleaning Process and Decisions
 
 The data cleaning process involved several critical steps to ensure the integrity and consistency of the datasets before analysis.
 
@@ -92,8 +92,7 @@ data_clean <- data_clean |>
 ## Data Visualizations
 
 ```         
-1   The relationship between the two quantitative variables you are investigating.
-(response var on x axis and explanatory on y axis)
+1   The relationship between the GDP per capita and CO2 per capita
 ```
 
 ```{r}
@@ -105,7 +104,7 @@ data_clean |>
 ```
 
 ```         
-2   How this relationship (from #1) has changed over time. (can use an animated 
+2   How this relationship (from #1) has changed over time
 ```
 ```{r}
 #| eval: false
@@ -135,12 +134,13 @@ fig
 ```
 
 
-
 ## Linear Regression
 
 ```         
-•   Describe the statistical method used – linear regression.
+Description of the statistical method used – linear regression.
 ```
+
+In our linear regression, we summarized our data to have one x value (GDP per capita) and one y value (CO2 per capita). We decided to average across all the years for each individual country.
 
 ```{r}
 
@@ -154,19 +154,19 @@ summary(data_lm)
 ```
 
 ```         
-•   Present the estimated regression model (in notation).
+Estimated regression model (in notation).
 ```
 
 CO2 Per Capita = -0.8204 + 0.0004982(GDP per Capita)
 
-```         
-•   Interpret the linear regression coefficients (in context).
+```
+Interpret the linear regression coefficients
 ```
 
 For every one dollar increase in international dollars in GDP per capita, there is a 0.0004982 million ton increase in C02 emissions per capita.
 
-```         
-•   Describe the fit of the regression model (both in table and written format).
+```        
+Description of the fit of the regression model (both in table and written format).
 ```
 
 ```{r}
@@ -175,11 +175,18 @@ library(broom)
 broom::glance(data_lm)
 ```
 
+
 39.31% of the variation in Co2 emissions is explained by variation in GDP per capita in our linear model.
 
 ## Model Fit
 
-Make a nicely formatted table that presents the following: • The variance in the response values. • The variance in the fitted values from your regression model. • The variance in the residuals from your regression model.
+Make a nicely formatted table that presents the following:
+
+• The variance in the response values.
+
+• The variance in the fitted values from your regression model.
+
+• The variance in the residuals from your regression model.
 
 ```{r}
 
