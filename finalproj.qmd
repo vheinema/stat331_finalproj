@@ -42,7 +42,7 @@ The data cleaning process involved several critical steps to ensure the integrit
 
 First, we acquired the CO2 Emissions Per Capita and GDP Per Capita data from Gapminder for the years 1800-2022. We began by performing a consistency check to verify that both datasets included the same countries and years, ensuring uniformity across the data.
 
-Next, we addressed missing values by filtering out during our cleaning process.  Data type conversion was essential, so we converted all relevant data to appropriate formats, such as numeric values for year, GDP, and CO2 emissions. We then merged the datasets using an inner join on the common keys, which were country and year, to create a unified dataset containing only entries present in both original datasets.
+Next, we addressed missing values by filtering out during our cleaning process. Data type conversion was essential, so we converted all relevant data to appropriate formats, such as numeric values for year, GDP, and CO2 emissions. We then merged the datasets using an inner join on the common keys, which were country and year, to create a unified dataset containing only entries present in both original datasets.
 
 Lastly, we filtered the dataset to focus on the years 1950 to 2021. These cleaning steps ensured a high-quality, comprehensive dataset ready for thorough analysis of the relationship between CO2 emissions per capita and GDP per capita across different countries over the specified period.
 
@@ -106,6 +106,7 @@ data_clean |>
 ```         
 2   How this relationship (from #1) has changed over time
 ```
+
 ```{r}
 #| eval: false
 
@@ -133,7 +134,6 @@ fig
 
 ```
 
-
 ## Linear Regression
 
 ```         
@@ -159,13 +159,13 @@ Estimated regression model (in notation).
 
 CO2 Per Capita = -0.8204 + 0.0004982(GDP per Capita)
 
-```
+```         
 Interpret the linear regression coefficients
 ```
 
 For every one dollar increase in international dollars in GDP per capita, there is a 0.0004982 million ton increase in C02 emissions per capita.
 
-```        
+```         
 Description of the fit of the regression model (both in table and written format).
 ```
 
@@ -174,7 +174,6 @@ library(broom)
 
 broom::glance(data_lm)
 ```
-
 
 39.31% of the variation in Co2 emissions is explained by variation in GDP per capita in our linear model.
 
